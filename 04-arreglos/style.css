@@ -1,0 +1,10 @@
+
+body{
+    background: rgb(186, 186, 241);
+}
+
+.disabled{
+    background: rgb(186, 186, 241);
+    color: rgb(186, 186, 241);
+}
+

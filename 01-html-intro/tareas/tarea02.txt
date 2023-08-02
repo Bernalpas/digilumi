@@ -1,0 +1,10 @@
+
+
+1. Sumar un archivo html a la tarea anterior
+2. Crear un navegación para las dos páginas
+3. Colocar un título a la página de color azul
+4. Agregar dos imágenes a la página
+5. Print de la Página en el Browser
+
+
+

@@ -1,0 +1,39 @@
+body{
+    background: rgb(178, 178, 226);
+}
+
+img{
+    width: 400px;
+    height: 300px;
+    border: 2px pink solid;
+}
+
+div{
+    text-align: center;
+   /*  background: rgb(240, 204, 204); */
+    margin: 25px;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+p{
+    text-align: center;
+}
+
+button{
+    background: rgb(26, 83, 26);
+    padding: 20px;
+}
+
+.supuestoNav{
+    display: flex;
+    justify-content:space-around;
+}
+
+td{
+    border: 1px black solid;
+}

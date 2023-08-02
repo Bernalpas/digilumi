@@ -1,0 +1,98 @@
+/* Reseteo de Css: eliminar, quitar los estilos que vienen por defecto del navegador */
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* configuro la tipografía y la url del font */
+@font-face {
+    font-family: Dancing Script;
+    src: url('../asset/Fonts/DancingScript-Bold.ttf');
+}
+
+@font-face {
+    font-family: Bruno Ace;
+    src: url('../asset/Fonts/Bruno_Ace/BrunoAce-Regular.ttf');
+}
+
+.fontGuardados{
+    font-family: Dancing Script;
+    font-size: 48px;
+    background: rgb(238, 201, 201);
+}
+
+.fontGuardados p{
+    background: rgb(147, 147, 233);
+    margin-top: 50px;
+    margin-right: 80px;
+    margin-bottom: 100px;
+    margin-left: 200px;
+    border-top: 5px solid black;
+    border-right: 5px dashed blue;
+    border-bottom: 8px dotted green;
+    border-left: 10px double rgb(130, 7, 46);
+    padding-top: 20px;
+    padding-right: 35px;
+    padding-bottom: 30px;
+    padding-left: 50px;
+
+}
+
+.brunoAce{
+    font-family: Bruno Ace;
+    font-size: 48px;
+}
+
+.fontLink{
+    font-family: 'Tilt Prism', cursive;
+    font-size: 24px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.brunoAce p{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: left;
+    text-align: start;
+    text-align: end;
+    text-align: right;
+    text-align: center;
+    text-align: justify;
+}
+
+h1{
+    text-align: center;
+    margin-top: 50px;
+    margin-right: 80px;
+    margin-bottom: 100px;
+    margin-left: 200px;
+}
+
+nav{
+    font-size: 24px;
+    margin-top: 20px;
+    margin-left: 15px;
+    text-align: end;
+    text-align: center;
+}
+
+a{
+    border-left: 5px solid black;
+    margin-right: 15px;
+    padding-left: 15px;
+    text-align: start;
+}
+
+img{
+    width: 600px;
+    height: 800px;
+}
+
+p{
+    width: 1200px;
+}
+

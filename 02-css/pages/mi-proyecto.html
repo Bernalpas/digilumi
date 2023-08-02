@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Agregamos un ícono en la pestaña del navegador-->
+    <link rel="shortcut icon" href="../asset/img/sensible.png" type="image/x-icon">
+
+    <!-- Agregamos el link a los íconos de Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"> 
+
+    <link rel="stylesheet" href="../css/mi-proyecto.css">
+
+    <title>Imágenes y Formularios</title>
+</head>
+<body class="icono">
+
+    <nav>
+        <a href="./mi-proyecto.html">
+            
+            <!-- Agregamos el CDN del ìcono SVG --> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="250" height="250" fill="currentColor" class="bi bi-window-stack" viewBox="0 0 16 16">
+                <path d="M4.5 6a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1ZM6 6a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm2-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+                <path d="M12 1a2 2 0 0 1 2 2 2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2 2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h10ZM2 12V5a2 2 0 0 1 2-2h9a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1Zm1-4v5a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V8H3Zm12-1V5a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v2h12Z"/>
+            </svg>
+            Imágenes y Formulario
+        </a>
+
+        <a href="../index.html">
+            <i class="bi bi-train-freight-front-fill"></i>
+            &#128514; Home
+        </a>
+
+        <a href="./mi-proyecto.html">
+            <i class="bi bi-terminal-fill"></i>
+            Imágenes y Formulario
+        </a>
+
+        <a href="./flex.html">
+            Flexbox
+        </a>
+    </nav>
+
+    <h1>
+        Ventas de Zapatillas
+    </h1>
+
+    <h2>
+        Nuestros Productos
+    </h2>
+
+<!--     <figure>
+        <img src="../asset/img/standard.avif" alt="zapatillas">
+    </figure> -->
+
+    <div class="formulario">
+        <h2>Formulario de Contacto</h2>
+    </div>
+    
+   <!--  <form action="./datos" method="post"> -->
+    <form action="">
+
+        <label for="nombre">
+            Nombre: 
+        </label>
+        <br>
+        <input type="text" id="nombre" name="nombre" required>
+        <br>
+        <label for="apellido">Apellido</label>
+        <br>
+        <input type="text" id="apellido" name="apellido" maxlength="10" minlength="4">
+        <br>
+        <label 
+            for="email">
+            Email
+        </label>
+        <br>
+        <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            required 
+            placeholder="tuemail@gmail.com"
+        >
+        <br>
+        <label for="edad">Edad</label>
+        <br>
+        <input 
+            type="number"
+            min="10"
+            max="100"
+        >
+        <br>
+        <label for="comentarios">Comentarios</label>
+        <br>
+        <textarea 
+            name="comentario" 
+            id="comentario" 
+            cols="30" 
+            rows="10">
+        </textarea>
+        <br>
+        <label for="genero">Género: </label>
+        <br>
+        <input type="radio" id="hombre" name="genero" value="hombre"> Hombre
+        <br>
+        <input type="radio" id="mujer" name="genero" value="mujer">Mujer
+        <br>
+        <input type="radio" id="otro" name="genero" value="otro">Otro
+        <br>
+        <label for="deportes">Deportes: </label>
+        <br>
+        <input type="checkbox" value="fultbol" name="deportes" id="fultbol"> Fútbol
+        <br>
+        <input type="checkbox" value="tenis" name="deportes" id="tenis"> Tenis
+        <br>
+        <input type="checkbox" value="basket" name="deportes" id="basket"> Basket
+        <br>
+        <label for="fecha">Fecha</label>
+        <br>
+        <input type="date" id="date" name="date">
+        <br>
+        <label for="provincia">Provincia: </label>
+        <br>
+        <select name="provincia" id="provincia" size="5">
+            <option value="CABA">CABA</option>
+            <option value="Cordoba">Córdoba</option>
+            <option value="Catamarca">Catamarca</option>
+            <option value="Misiones" selected>Misiones</option>
+            <option value="Corrientes">Corrientes</option>
+            <option value="Corrientes">Corrientes</option>
+            <option value="Corrientes">Corrientes</option>
+            <option value="Corrientes">Corrientes</option>
+            <option value="Corrientes">Corrientes</option>
+            <option value="Corrientes">Corrientes</option>
+            <option value="Corrientes">Corrientes</option>
+            <option value="Corrientes">Corrientes</option>
+        </select>
+        <br>
+        <label for="password">Password</label>
+        <br>
+        <input type="password" name="password" id="password">
+        <br>
+        <label for="archivo">Archivo</label>
+        <br>
+        <input type="file" id="archivo" name="archivo">
+        <br>
+        <br>
+        <input type="submit" value="Enviar datos del Formulario">
+        <br>
+        <button type="submit">Enviar con Botón</button>
+        <br>
+        <input type="reset" value="Limpiar Formulario">
+        <br>
+        <button type="reset">Borrar info Equivocada</button>
+    </form>
+</body>
+</html>

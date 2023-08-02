@@ -1,0 +1,41 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+/* 
+selector{
+    propiedad: valor;
+    propiedad: valor
+}
+*/
+
+body{
+    background: #F2F2F2;
+}
+
+.colorAmarillo{
+    background-color: #FCEE21;
+}
+
+/* regla de estilos por class */
+.tituloDos{
+    color: white;
+    background-color: #000000;
+}
+
+/*  regla de estilo por id */
+#cuartoTitulo{
+    color: rgb(9, 98, 11);
+}
+
+/* .listaAmarilla{
+    background-color: #FCEE21;
+} */
+
+/* tipografía */
+.miParrafoEspecial{
+/*     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+    font-family: 'Kaushan Script', cursive;
+    font-size: 24px;
+    font-weight: 900;
+    font-style: italic;
+}
