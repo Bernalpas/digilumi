@@ -38,8 +38,8 @@
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <input class="form-control me-2" type="search" placeholder="Search" id="buscar" aria-label="Search">
+                    <button class="btn btn-outline-success" onclick="buscarProducto()" type="button">Search</button>
                 </form>
             </div>
         </div>
@@ -90,7 +90,7 @@
     </div>
 
     <div class="m-5">
-        <h1 class="text-center">
+        <h1 class="text-center" id="titulo">
             Formulario de Carga de Productos
         </h1>
     </div>
@@ -122,7 +122,6 @@
 
     <!-- Link al JS de Bootstrap en local -->
     <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
-
     <script src="./producto.js"></script>
 </body>
 

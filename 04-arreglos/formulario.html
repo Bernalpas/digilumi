@@ -39,7 +39,7 @@
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <button onclick="elementosDom()" class="btn btn-outline-success" type="button">Search</button>
                 </form>
             </div>
         </div>
@@ -69,6 +69,11 @@
             <hr>
             <div class="m-5 text-center">
                 <button type="button" onclick="imprimirContactos()" class="btn btn-warning w-75">Imprimir Datos</button>
+            </div>
+            <hr>
+            <hr>
+            <div class="m-5 text-center">
+                <button id="miBoton" type="button" class="btn btn-info w-75">Escuchando Eventos</button>
             </div>
             <hr>
         </form>
