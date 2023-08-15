@@ -90,7 +90,7 @@ const elementosDom = () => {
 let miBoton = document.getElementById('miBoton');
 
 //agregamos un evento al botón
-miBoton.addEventListener('click', (event) => {
+miBoton.addEventListener('click', (event) => {//e
 
     event.preventDefault();
 

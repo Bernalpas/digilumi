@@ -36,6 +36,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="./productos.html">Productos</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./tablaProductos.html">Tabla Productos</a>
+                    </li>
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" id="buscar" aria-label="Search">
@@ -117,6 +120,36 @@
             <hr>
         </form>
     </div>
+
+    <div class="container text-center m-5">
+        <h2>Lista de Productos - Stock</h2>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Nombre Producto</th>
+                    <th>Precio Producto</th>
+                </tr>
+            </thead>
+            <tbody id="miTabla">
+                <!--    <tr>
+                    <td id>Café</td>
+                    <td>500</td>
+                </tr> -->
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                        Cantidad de Productos: 
+                    </td>
+                    <td id="totalProductos">
+                        
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <hr class="container">
 
 
 

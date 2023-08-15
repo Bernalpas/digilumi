@@ -19,11 +19,56 @@ function agregarProducto() {
         precio: precioProducto
     }
 
+    //cargamos el arreglo de productos
     productos.push(producto);
+
+    //creamos una tabla y cargamos los datos con el form
+    let tabla = document.getElementById('miTabla');
+    
+    //limpiar la tabla cuando se cargan los productos
+    tabla.innerHTML = '';
+
+    //creamos una variable para guardar los datos convertidos
+    let misProductos = JSON.stringify(productos);
+
+    //utilizamos la memoria local del navegador para guardar info de los productos
+    localStorage.setItem('Productos', misProductos);
+
+    for (let i = 0; i < productos.length; i++) {
+        console.log(productos[i]); 
+
+        
+        //creamos el tr
+        let fila = document.createElement('tr');
+
+        //creamos el td de nombre
+        let celdaNombre = document.createElement('td');
+
+        //creamos el td de precio
+        let celdaPrecio = document.createElement('td');
+
+        //celdaNombre = productos[i].nombre;
+        celdaNombre.textContent = productos[i].nombre;
+        celdaPrecio.textContent = productos[i].precio;
+
+        //subimos los td al tr
+        fila.appendChild(celdaNombre);
+        fila.appendChild(celdaPrecio);
+
+        //subimos el tr al tbody
+        tabla.appendChild(fila);
+    }
+
+    //Mostramos al cliente la cantiddad de productos en stock
+    let totalProductos = document.getElementById('totalProductos');
+    totalProductos.innerHTML = `<td>${productos.length}</td>`
 
     validarDatos(nombreProducto, precioProducto);
 
 }
+
+
+
 
 
 function validarDatos(nombreProducto, precioProducto) {
@@ -57,6 +102,8 @@ function imprimirProducto() {
         console.log(`Los datos del producto son: ${i} - ${productos[i].nombre} - ${productos[i].precio}`);
         
     }
+
+    localStorage.removeItem('Productos');
 
 }
 
