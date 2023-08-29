@@ -8,6 +8,6 @@
     "dev": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Berni",
   "license": "ISC"
 }
