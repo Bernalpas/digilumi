@@ -5,6 +5,11 @@ const express = require('express');
 // ejecutamos las funcionalidades de la librería requerida
 const app = express();
 
+//MIDDELWARES
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
+
 //Número del Puerto que va a escuchar el servidor
 const PORTI = 9000 || 8080;
 
@@ -92,6 +97,14 @@ app.get('/formulario', (req, res)=>{
         </form>
     </div>
     `)
+
+    //res.send();
+    //res.end();
+    //res.json();
+    //res.sendFile('index.html);
+    //res.download();
+    //res.redirect();
+    //res.render('nosotros);
 });
 
 //ruta para responder con un tipo de dato JSON
@@ -107,6 +120,74 @@ app.get('/json', (req, res)=>{
         Respuesta: 'Respuesta desde el Servidor',
     });
 });
+
+app.get('/descargas', (req, res)=>{
+
+    console.log('Archivo descargado');
+
+    res.download('./paraDescarga.txt');
+})
+
+//Crear una función para que mi app entienda JSON - MIDDELWARES
+//=> son funciones intermedias que procesan cosas antes de machear a las rutas
+// los middelwares van con .use()
+
+/* app.use((req, res, next)=>{
+    console.log('==============================');
+    console.log('Pasó por el MIDDELWARE');
+    console.log('==============================');
+
+    //setear el json para que lo entienda
+    if(req.method == 'POST'){
+        console.log('Soy un Post');
+    }
+
+    next();
+}); */
+
+//post
+app.post('/enviar', (req, res)=>{
+
+    console.log('==============================');
+    console.log(req.body);
+    console.log('==============================');
+    
+    //recibimos los datos
+    let nombre = req.body.nombre;
+    let apellido = req.body.apellido;
+    
+    console.log('==============================');
+
+    console.log(`Los datos recibidos son Nombre: ${nombre} y Apellido: ${apellido}`);
+
+    res.send('Datos recibidos')
+});
+
+app.post('/separar', (req, res)=>{
+
+    console.log('==============================');
+    console.log('Desestructuración');
+    console.log('==============================');
+    
+    const { nombre, apellido, edad, provincia, pais } = req.body;
+    
+    console.log('==============================');
+
+    console.log(`Los datos recibidos son Nombre: ${nombre} y Apellido: ${apellido}, Edad: ${edad} y la Provincia es: ${provincia} en el país de: ${pais}`);
+
+    res.json({
+        Nombre: nombre,
+        Apellido: apellido,
+        Edad: edad,
+        Provincia: provincia,
+        País: pais
+    })
+});
+
+
+//put
+//delete
+
 
 app.listen(PORT, function(err){
 
