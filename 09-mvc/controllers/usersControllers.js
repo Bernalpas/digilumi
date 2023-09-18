@@ -31,7 +31,7 @@ const actualizarUsuarios = (req, res) => {
 
     let user = req.params.id
 
-    console.log(req);
+    //console.log(req);
     console.log('=========================');
     console.log(req.params.id);
     console.log('=========================');

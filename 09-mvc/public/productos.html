@@ -48,24 +48,28 @@
 
     <div class="m-5">
         <h1 class="text-center">
-            Formulario de Login
+            Cargando Productos
         </h1>
     </div>
 
     <div class="container">
         <!-- Content here -->
-        <form action="/users" method="post">
+        <form action="/products" method="post">
             <div class="mb-3">
-                <label for="user" class="form-label">User</label>
-                <input type="text" class="form-control" id="user" name="user">
+                <label for="nombreProducto" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombreProducto" name="nombreProducto">
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password">
+                <label for="precioProducto" class="form-label">Precio</label>
+                <input type="number" class="form-control" id="precioProducto" name="precioProducto">
+            </div>
+            <div class="mb-3">
+                <label for="stockProducto" class="form-label">Stock</label>
+                <input type="number" class="form-control" id="stockProducto" name="stockProducto">
             </div>
             <div class="m-5 text-center">
-                <button type="submit" class="btn btn-success w-50">Enviar Datos</button>
-                <button type="reset" class="btn btn-danger w-50 mt-4">Borrar Datos</button>
+                <button type="submit" class="btn btn-primary w-50">Enviar Producots</button>
+                <button type="reset" class="btn btn-secondary w-50 mt-4">Borrar Productos</button>
             </div>
         </form>
     </div>

@@ -11,11 +11,27 @@ router.get('/', (req, res) => {
 
 });
 
+router.post('/', (req, res) => {
+
+    let nombreProducto = req.body.nombreProducto;
+    let precioProducto = req.body.precioProducto;
+    let stockProducto = req.body.stockProducto;
+
+    console.log(`Los datos recibidos son: Nombre: ${nombreProducto}, Precio: ${precioProducto} y Stock: ${stockProducto}`);
+
+    res.status(200).json({
+        nombreProducto: nombreProducto,
+        precioProducto: precioProducto,
+        stockProducto: stockProducto
+    })
+    
+});
+
 router.put('/:id', (req, res) => {
 
     let products = req.params.id
 
-    console.log(req);
+    //console.log(req);
     console.log('=========================');
     console.log(req.params.id);
     console.log('=========================');
