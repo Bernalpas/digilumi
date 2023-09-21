@@ -1,13 +1,43 @@
+const MongoClient = require('mongodb').MongoClient;
+const dotenv = require('dotenv');
+dotenv.config();
+const MONGO_URL_LOCAL = process.env.MONGO_URL_LOCAL; 
 
 //Controlador de Usuarios
+// CRUD
 
-
+//R: read => leer los datos de la database
 function listarUsuarios(req, res) {
     res.send(`<h1>Listamos todos los Usuarios</h1>`);
 }
 
+
+//C: create => crear un nuevo usuario
 const crearUsuarios = (req, res) => {
     const { user, password } = req.body;
+
+    //ejemplo de datos de usuario
+
+    MongoClient.connect(MONGO_URL_LOCAL, async (err, db) => {
+        if(err) throw err;
+    
+        //seleccionamos la base de datos
+        let dbo = db.db('ecommerce');
+    
+        //Documento a insertar en la database
+        let documentoEmpleado = {
+            nombre: user,
+            password: password
+        };
+    
+        await dbo.collection('empleados').insertOne(documentoEmpleado, (err, res) => {
+            if(err) throw err;
+            console.log(`Documento insertado en la colección empleados`);
+            db.close();
+        });
+    
+    });
+
 
     let userData = 'Pepe';
     let passData = '1234';
@@ -27,6 +57,8 @@ const crearUsuarios = (req, res) => {
     }
 }
 
+
+//U: update => actualizar los datos de un usuario
 const actualizarUsuarios = (req, res) => {
 
     let user = req.params.id
@@ -39,6 +71,7 @@ const actualizarUsuarios = (req, res) => {
 
 }
 
+//D: delete => eliminar los datos de un usuario
 const eliminarUsuarios = (req, res) => {
 
     let user = req.params.id;
