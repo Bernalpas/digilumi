@@ -14,16 +14,20 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/formulario">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/productos">Productos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/tablaProductos">Tabla Productos</a>
+                        <a class="nav-link" href="/registro">Login</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    {{!-- Ejemplo de motores de plantillas en EJS --}}
+    {{!-- 
+        <% include partials/navegacion %>
+        <%if login {  %>
+            <h1>Este es el Inicio</h1>
+        <% } else { %>
+            <h1>Este es el Inicio sin Login</h1>
+        <% } %> 
+    --}}
 
