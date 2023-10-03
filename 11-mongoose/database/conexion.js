@@ -6,7 +6,7 @@ const MONGOLOCAL = process.env.MONGO_URL_LOCAL;
 const MONGOATLAS = process.env.MONGO_URL_ATLAS;
 
 //2. Creamos la función de conexión
-const conexion = mongoose.connect(MONGOLOCAL, {
+const conexion = mongoose.connect(MONGOATLAS, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     }).then(() => {
