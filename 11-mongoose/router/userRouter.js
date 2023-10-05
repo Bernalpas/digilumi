@@ -11,7 +11,8 @@ const {
     userRegister,
     userFomLogin,
     userCreate,
-    userLogin
+    userLogin,
+    userTable
 } = require('../controllers/userController');
 
 router.get('/', userIndex);
@@ -19,6 +20,8 @@ router.get('/', userIndex);
 router.get('/registro', userRegister);
 
 router.get('/login', userFomLogin);
+
+router.get('/usuarios', userTable);
 
 router.post('/create',
     [

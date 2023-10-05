@@ -2,7 +2,7 @@
 //1. Importamos la coleccion del users
 const Users = require('../models/userModel');
 const { validationResult } = require('express-validator');
-
+const bcrypt = require('bcrypt');
 
 const userIndex = (req, res) => {
     res.render('index');
@@ -14,6 +14,10 @@ const userRegister = (req, res) => {
 
 const userFomLogin = (req, res) => {
     res.render('login');
+}
+
+const userTable = (req, res) => {
+    res.render('usuarios');
 }
 
 const userCreate = async (req, res) => {
@@ -34,7 +38,7 @@ const userCreate = async (req, res) => {
     }
     
     //Recibimos los datos
-    const {nombre, email, password } = req.body;
+    const { nombre, email, password } = req.body;
 
     //Testeamos los datos
     console.log(`1. Datos recibidos ${nombre} - ${email} - ${password}`);
@@ -55,10 +59,28 @@ const userCreate = async (req, res) => {
         //Creamos el usuario 
         usuarioNuevo = new Users(req.body);
 
-        console.log(`3. Usuario Nuevo: ${usuarioNuevo}`);
+        //Generamos la encriptación del password del usuario
+        const salt = bcrypt.genSaltSync(10);
+        console.log(`3. Salt: ${salt}`);
+
+        //password del usuario
+        console.log(`4. Password del user: ${usuarioNuevo.password}`);
+
+        //Mezclamos la sal con el password del usuario
+        usuarioNuevo.password = bcrypt.hashSync(password, salt);
+
+        //Password con la sal de bcrypt
+        console.log(`5. Password del user: ${usuarioNuevo.password}`);
+
+        console.log(`6. Usuario Nuevo: ${usuarioNuevo}`);
 
         //Guardamos el usuario 
         await usuarioNuevo.save();
+
+        return res.render('index', {
+            nombre
+        });
+
         
     } catch (error) {
         return res.render('error', {
@@ -66,15 +88,15 @@ const userCreate = async (req, res) => {
         });
     }
 
-    res.json({
-        nombre,
-        email,
-        password
-    })
     
 }
 
 const userLogin = async (req, res) => {
+
+
+    const { email, password} = req.body;
+
+    console.log(`1. Los datos son: ${email}, ${password}`);
 
     //Utilizamos la verificación de express-validator
     const errores = validationResult(req);
@@ -90,20 +112,23 @@ const userLogin = async (req, res) => {
         });
     }
 
-    const { email, password} = req.body;
-    console.log(email, password);
-
     try{
-        // buscamos al usuario para logearlo
-        let usuarioLogin = await Users.findOne({ email });
-        console.log(`1. ${usuarioLogin.nombre}`)
-        console.log(`2. ${usuarioLogin}`)
 
-        let nombre = usuarioLogin.nombre;
+        const usuarioLogin = await Users.findOne({ email });
 
-        res.render('admin', {
-            nombre
-        });
+        console.log(`2. Usuario Login: ${usuarioLogin}`);
+
+        if(!usuarioLogin){
+            return res.render('registro');
+        }
+
+        const validacionPass = bcrypt.compareSync(password, usuarioLogin.password);
+
+        console.log(`3. Validación Pass: ${validacionPass}`);
+
+        if(validacionPass){
+            return res.render('admin')
+        }
 
     }catch{
 
@@ -121,5 +146,6 @@ module.exports = {
     userRegister,
     userFomLogin,
     userCreate,
-    userLogin
+    userLogin,
+    userTable
 }
