@@ -4,13 +4,13 @@ const clave = process.env.CLAVEJWT;
 
 
 //1. Creamos una función para firmar nuestro token
-const generarToken = (nombre, password) => {
+const generarToken = (nombre, email) => {
 
     console.log(clave);
 
     const token = jwt.sign({
         nombre: nombre,
-        password: password
+        email: email
     }, clave, {
         expiresIn: '60s'
     });
@@ -19,7 +19,7 @@ const generarToken = (nombre, password) => {
 
 }
 
-/* const auth = (req, res, next) => {
+const auth = (req, res, next) => {
 
 
 
@@ -27,8 +27,9 @@ const generarToken = (nombre, password) => {
 
     next();
 
-}; */
+};
 
 module.exports = {
-    generarToken
+    generarToken,
+    auth
 }
