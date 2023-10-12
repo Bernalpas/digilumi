@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const path = require('path');
 const jwt = require('./jwt');
+const hbs = require('hbs');
 dotenv.config();
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -16,10 +17,23 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+//Configuramos el motor de plantillas de Handlebars
+app.set('view engine', 'hbs');
+
+//Seteamos el path del directorio de las vistas
+app.set('views', path.join(__dirname, '/views'));
+
+//Seteamos el path del directorio de los parciales
+hbs.registerPartials(path.join(__dirname, '/views/partials'));
+
+
 app.get('/', (req, res) => {
-    res.json({
-        mensaje: 'Bienvenido a mi API'
-    });
+    res.render('index');
+})
+
+app.get('/usuarios', (req, res) => {
+    res.render('usuarios');
 })
 
 
@@ -52,8 +66,8 @@ app.post('/login', (req, res) => {
     
                 console.log(`3. El token generado es ${token}`);
     
-                res.header("x-auth-token", token).send({
-                    email: email,
+                res.header("x-auth-token", token).render('usuarios', {
+                    nombre: usuario.nombre
                 });
             }else{
                 
@@ -93,6 +107,14 @@ app.post('/registro', (req, res) => {
 
     res.send(`<h1>Tus datos han sido registrados</h1>`);
 
+});
+
+//ruta que necesita del token para acceder
+app.get('/datos', jwt.auth, (req, res) => {
+
+    res.json({
+        datos: 'Tenemos tu token'
+    })
 });
 
 
