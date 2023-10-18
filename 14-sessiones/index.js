@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-//2. Utilizamos el meddelware de la session
+//2. Utilizamos el middelware de la session
 app.use(session({
     store: new FileStore({path: './sessions', ttl: 60}),
     secret: clave,
