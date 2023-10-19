@@ -2,6 +2,7 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const hbs = require("hbs");
+const nodemailer = require('nodemailer');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const dotenv = require("dotenv");
@@ -34,6 +35,38 @@ app.get('/', (req, res)=>{
 app.post('/registro', (req, res)=>{
 
   const { nombre, email, password } = req.body;
+
+  //Función para enviar un Email al cliente que se registra
+  const enviarEmail = async () => {
+
+    //configuramos el trasportador del email
+    let transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: {
+        user: process.env.EMAILUSER,
+        pass: process.env.EMAILPASS
+      }
+    });
+
+    //configuramos el email de respuesta al cliente que se registra
+    let emailData = await transporter.sendMail({
+      from: process.env.EMAILUSER,
+      to: email,
+      subject: 'Gracias por registrarse en nuestra App',
+      html: `<h1>Bienvenido ${nombre} a nuestra Comunidad</h1> <br>
+      A partir de este momento recibirás todas las novedades de nuestra comunidad <br>
+      Saludos y muy buena jornada`
+    })
+  };
+
+  enviarEmail()
+  .then(()=>{
+    console.log("Email enviado");
+  }).catch((error)=>{
+    console.log(error);
+  });
 
   res.json({
     nombre,
