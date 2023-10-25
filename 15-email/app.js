@@ -57,7 +57,8 @@ app.post('/registro', (req, res)=>{
       subject: 'Gracias por registrarse en nuestra App',
       html: `<h1>Bienvenido ${nombre} a nuestra Comunidad</h1> <br>
       A partir de este momento recibirás todas las novedades de nuestra comunidad <br>
-      Saludos y muy buena jornada`
+      Saludos y muy buena jornada <br>
+      <a href="https://www.educacionit.com/" target="_blank">Visitanos</a> para ver mas!! <br>`
     })
   };
 

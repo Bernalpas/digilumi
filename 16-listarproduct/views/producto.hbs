@@ -1,0 +1,47 @@
+
+<nav>
+    <ul>
+        <li>
+            <a href='/'>Home</a>
+        </li>
+        <li>
+            <a href='/producto'>Producto</a>
+        </li>
+        <li>
+            <a href='/listarproducto'>Listado de Producto</a>
+        </li>
+    </ul>
+</nav>
+
+
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+
+<div class="container">
+    <h2 class="text-center m-4">
+        Formulario de Registro
+    </h2>
+    <form action="/producto" method="post">
+        <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+            <div class="mb-3">
+                <label for="precio" class="form-label">Precio</label>
+                <input type="number" class="form-control" id="precio" name="precio" required>
+            </div>
+            <div class="mb-3">
+                <label for="imagen" class="form-label">Imagen</label>
+                <input type="text" class="form-control" id="imagen" name="imagen" required>
+            </div>
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <input type="text" class="form-control" id="descripcion" name="descripcion" required>
+            </div>
+            <div class="m-5 text-center">
+                <button type="submit" class="btn btn-success w-50">Enviar Datos</button>
+                <button type="reset" class="btn btn-danger w-50 mt-4">Borrar Datos</button>
+            </div>
+
+    </form>
+</div>
