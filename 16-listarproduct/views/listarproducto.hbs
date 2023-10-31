@@ -25,7 +25,14 @@
             <div class="card-body">
                 <h5 class="card-title">{{ nombre }}</h5>
                 <p class="card-text">{{ descripcion }}</p>
-                <a href="/detalles/?nombre={{nombre}}" class="btn btn-primary">Comprar</a>
+                <a href="/detalles/{{_id}}" class="btn btn-primary">Comprar</a>
+                <form action="/delete/{{_id}}" method="post">
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                </form>
+                <a href="/update/{{_id}}" class="btn btn-warning">Actualizar</a>
+{{!--                 <form action="/update/{{_id}}" method="post">
+                    <button type="submit" class="btn btn-warning">Actualizar</button>
+                </form>    --}}                 
             </div>
         </div>
 

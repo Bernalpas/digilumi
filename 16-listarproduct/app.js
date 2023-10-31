@@ -4,7 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const Producto = require('./models/producto');
-const { log } = require('console');
+const Eliminado = require('./models/eliminados');
+const mongoose = require('mongoose');
 require('./models/producto');
 
 var app = express();
@@ -34,15 +35,116 @@ app.get('/producto', (req, res) => {
   res.render('producto',  { title: 'Formulario de Productos' });
 });
 
-app.get('/detalles', (req, res) => {
+app.get('/update/:_id', async (req, res) => {
 
-  res.render('detalles', { 
-    title: 'Detalles de Productos',
+  console.log(req.params._id);
 
-    detalleProductos
+  const id = req.params._id;
+
+  try {
+
+    const actualizar =  await Producto.findById(id);
+
+    console.log(actualizar);
+
+    return res.render('actualizar', { 
+      title: 'Formulario de Actualización de Productos', 
+      actualizar, 
+      id
+    })
+    
+  } catch (error) {
+    console.log(error);
+    res.render('error');
+  }
+
+});
+
+app.get('/eliminar/', (req, res) => {
+
+  //console.log(req.params._id);
+
+  res.render('eliminar', { 
+    title: 'Eliminando algún Producto'
   });
 
 });
+
+
+app.get('/detalles/:_id', async (req, res) => {
+
+  console.log(req.params._id);
+
+  const id = req.params._id;
+
+  //convertir un id en objeto de mongo
+  //const ObjectId = mongoose.Types.ObjectId;
+  //const idObj = new ObjectId(id);
+
+  //console.log(idObj);
+
+  try {
+
+    let producto =  await Producto.findById(id);
+    
+    console.log(producto);
+
+
+    res.render('detalles', { 
+      title: 'Detalles del producto', 
+      id,
+      producto     
+    });
+
+  } catch (error) {
+    console.log(error);
+    return res.render('error');
+  }
+
+});
+
+
+app.post('/delete/:_id', async (req, res) => {
+
+  console.log(req.params._id);
+
+  const id = req.params._id;
+
+  try {
+
+    /* let dato =  await Producto.findById(id);
+    
+    const { nombre, precio, imagen, descripcion } = dato;
+    
+    console.log(nombre, precio, imagen, descripcion);
+    
+    let eliminado = new Eliminado(dato);
+
+    console.log(eliminado); */
+
+    let producto =  await Producto.findByIdAndDelete(id);
+    
+    console.log(producto);
+    
+    console.log('=====================================================');
+    //await dato.save();
+    console.log('=====================================================');
+
+
+    res.render('eliminar', { 
+      title: 'Producto eliminado', 
+      id    
+    });
+
+  } catch (error) {
+    console.log(error);
+    return res.render('error');
+  }
+
+});
+
+
+
 
 
 
@@ -79,6 +181,33 @@ app.get('/listarproducto', async (req, res) => {
     return res.render('listarproducto', { 
       title: 'Listado de productos', 
       todosProductos
+    })
+    
+  } catch (error) {
+    console.log(error);
+    res.render('error');
+  }
+
+});
+
+app.post('/update/:_id', async (req, res) => {
+
+  console.log(req.params._id);
+
+  const id = req.params._id;
+
+  try {
+
+    const dato = req.body;
+
+    console.log(dato);
+
+    const actualizar =  await Producto.findByIdAndUpdate(id, dato);
+
+    console.log(actualizar);
+
+    return res.render('actualizado', { 
+      title: 'Actualización de Productos Correcta'
     })
     
   } catch (error) {
