@@ -1,0 +1,15 @@
+/* $font: 'Open Sans', sans-serif;
+$size: 36px;
+$color: #333;  */
+body {
+  font-family: "Times New Roman", serif;
+  font-size: 40px;
+  background: #db5454;
+}
+
+p {
+  color: blue;
+  font-family: "Open Sans", sans-serif;
+}
+
+/*# sourceMappingURL=index.css.map */

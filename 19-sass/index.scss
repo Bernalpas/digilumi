@@ -1,0 +1,21 @@
+
+@import 'productos.scss';
+
+
+
+/* $font: 'Open Sans', sans-serif;
+$size: 36px;
+$color: #333;  */
+
+
+body {
+    font-family: $font;
+    font-size: $size;
+    background: $color;
+}
+
+p{
+    color: $coloFondo;
+    font-family: $parrafo;
+}
+

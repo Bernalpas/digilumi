@@ -103,7 +103,6 @@ app.get('/detalles/:_id', async (req, res) => {
 
 });
 
-
 app.post('/delete/:_id', async (req, res) => {
 
   console.log(req.params._id);
@@ -202,7 +201,7 @@ app.post('/update/:_id', async (req, res) => {
 
     console.log(dato);
 
-    const actualizar =  await Producto.findByIdAndUpdate(id, dato);
+    const actualizar =  await Producto.findByIdAndUpdate(id, dato, { new: true });
 
     console.log(actualizar);
 
